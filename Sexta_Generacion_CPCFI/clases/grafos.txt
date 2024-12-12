@@ -1,0 +1,30 @@
+V = vortex
+E = edges
+
+DFS:
+    Se explora primero la maxima profundidad de el grafo.
+    Complejidad de DFS O(|V| + |E|) operaciones para ser completado
+    Se va a pasar por todas las aristas |E| veces
+    Para un arbol la complejidad es de O(|V|)
+    Para un grajo completo la complejidad es de O(|V|^2)
+
+Subgrafo: es un conjunto de vertices y aristas que pertenecen a un 
+grafo más grande.
+
+Componente conexa: Es un sugbrafo en donde cada par de vertices
+son alcanzables mediante un camino.
+
+Ciclo (Cycle):
+    Un ciclo es un camino que termina en el mismo vertice donde empezo.
+Grafo bipartito:
+    Conjunto de vertices U y V, donde las conexiones estan entre U y V, nunca hay 
+    camino directo entre dos elementos de U o de V
+    un grafo es bitartito si |V| es par, y es un grafo ciclico 
+
+Topological Sort:
+    Se utiliza para saber el orden en el que terminamos de visitar un nodo.
+    Se marca un tiempo de inicio, cuando se encuentra el nodo, el tiempo de salida
+      se indica cuando sabemos que ya nunca regresaremos al nodo.
+    EL topological sort es para grafos dirigidos aciclicos, y trata de acomodar los nodos
+      de tal modo que un nodo no pueda ir a ninguno de los anteriores del topological sort.
+    

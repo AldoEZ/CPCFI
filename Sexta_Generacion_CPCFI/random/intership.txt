@@ -1,0 +1,44 @@
+C.V
+    primero poner nombre en grande
+    Contanto (correo, telefono, link, discord)
+    Educacion (explicacion de donde estudias, cuando esperas graduarte,
+        materias importantes)
+    proyectos y experiencia (proyectos que tengas incluso de la escuela,
+        que tecnologias conoces, tambien si sabes utilizar git, github, linux)
+    "poner negritas en cosas importantes"
+    Premios de concursos o algo relacionado.
+    Cualquier lenguaje.
+    Formato de los proyectos:
+        Titulo de proyecto, lenguaje
+        explicacion de la implementacion del proyecto (maximo dos lineas o tres)
+        usar muchos verbos de que cosas hiciste tu. Puedes meter cuantas personas han usado tu proyecto
+    NO MAS DE UNA HOJA, PERO LLENARLA
+Hay un github (2025 interships)
+paginas con careers (meta.careers)
+pramp.
+
+Proceso de meta:
+    1. Aplicación del aspirante
+    2. C.A. 45 min (son 4 problemas)
+    3. Entrevista (2 problemas)
+        - Revisar
+        - Lluvia de ideas
+        - implementacion
+        - T.C S.C (complejidad en tiempo y memoria)
+        - otras formas de solucionarlos
+    Problemas:
+        1- Lista con elementos [1, [k, l], [l,], 5, [n, k],2 , 4, 3] - se resuelve con dfs
+            Tienes que sumar todos los elementos, pero si se encuentra dentro de otras listas
+            por ejemplo 1*1 + k*2 (se encuentra dentro de otra lista) + l*2, etc
+        2- En una matriz n*n, buscar el camino más largo de numeros consecutivos (Grafos)
+    Proceso de la visa, misma empresa que colabora con microsoft como meta 
+    -> Housing
+    -> shuttles
+    -> complejidad
+    -> seguro
+    -> 
+    Te mandan una encuesta de que lenguajes conoces, en que areas trabajas etc
+    Sedes:
+        -> New York
+        -> M. Park
+        -> Seattle

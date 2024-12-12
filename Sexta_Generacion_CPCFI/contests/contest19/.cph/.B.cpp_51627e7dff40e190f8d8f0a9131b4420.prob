@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/home/aldo/Documentos/CPCFI/contests/contest19/B.cpp","tests":[{"id":1731168560280,"input":"4\n1 3\n2 4\n199999 200000\n19 84","output":"5\n6\n36\n263"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/contests/contest19/B.cpp","group":"local","local":true}

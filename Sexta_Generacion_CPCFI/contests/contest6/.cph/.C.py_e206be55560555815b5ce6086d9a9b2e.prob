@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/home/aldo/Documentos/CPCFI/contest6/C.py","tests":[{"id":1724526208091,"input":"2\n2 3\n1 1000","output":"2\n168"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/contest6/C.py","group":"local","local":true}

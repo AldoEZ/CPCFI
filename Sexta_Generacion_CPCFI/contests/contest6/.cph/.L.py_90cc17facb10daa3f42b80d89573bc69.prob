@@ -1,0 +1,1 @@
+{"name":"Local: L","url":"/home/aldo/Documentos/CPCFI/contest6/L.py","tests":[{"id":1724529738408,"input":"5\n1\n2\n3\n4\n5","output":"2\n(2)^2\n(2*(2)^2)\n((2)^2)^2\n(2*((2)^2)^2)"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/contest6/L.py","group":"local","local":true}

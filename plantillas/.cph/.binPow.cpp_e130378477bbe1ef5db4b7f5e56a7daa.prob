@@ -1,0 +1,1 @@
+{"name":"Local: binPow","url":"/home/aldo/Documentos/CPCFI/plantillas/binPow.cpp","tests":[{"id":1729548143275,"input":"1\n2 1000000005","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/plantillas/binPow.cpp","group":"local","local":true}

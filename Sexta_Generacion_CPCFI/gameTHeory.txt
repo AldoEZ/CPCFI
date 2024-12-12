@@ -1,0 +1,6 @@
+Game states:
+    - Estado de victoria: W
+    - Estado de derrota: L
+
+Tabla de Casos de Juegos:
+ Se hace una tabla con los estados de victoria o derrota del juego

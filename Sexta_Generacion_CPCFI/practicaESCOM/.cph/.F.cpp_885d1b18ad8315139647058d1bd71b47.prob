@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"c:\\CPCFI\\practicaESCOM\\F.cpp","tests":[{"id":1727496812750,"input":"1 1 2\n3\n8\n2*","output":"4"},{"id":1727497168979,"input":"2 2 3\n10\n10\n*00","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicaESCOM\\F.cpp","group":"local","local":true}

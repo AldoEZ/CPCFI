@@ -1,0 +1,32 @@
+Clase de Complejidad (Primera clase):
+    O(1)
+    O(log2(n))
+    O(sqtr(n))
+    O(n2)
+    O(nm)
+    O(n!)
+
+    Al medir la complejidad se multiplica sus sentencias
+    si son ciclos anidados
+
+printf y scanf son mas rapidos que cin y cout, sin embargo
+son mejores cin y cout para lectura de cadenas
+
+"\n" es mas rapido que endl pero limpia el buffer de entrada
+cosa que no hace el endl
+
+Data Structures (Segunda Clase):
+    - Queue's.
+        c++:
+            queue<tipoDato>
+            dequeue
+    - Vector:
+        c++:
+            vector <tipoDato> nombre;
+            vector<vector<vector (es posible)
+            a(n, vector)
+            cin >> a[i]
+            sort:
+                a.begin() o .rbegin()
+                 .end() o .rend()
+    set
