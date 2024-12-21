@@ -21,25 +21,20 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve(){
-    ll n; cin >> n;
-    vll a(n);
-    for(ll i = 0; i < n; i++) cin >> a[i];
+    ll n, k; cin >> n >> k;
+    ll bajo = 1, arriba = n;
+    ll pass = k;
     
-    vll prefixP; prefixP.pb(a[0]);
-    vll prefixI; prefixI.pb(a[1]);
-    
-    for(ll i = 2; i < n; i++) {
-        if(i%2 == 0) prefixP.pb(a[i]);
-        else prefixI.pb(a[i]);
+    for(int i = 0; i < n; i++) {
+        if(pass == 1) {
+            cout << bajo << " ";
+            bajo++; pass = k;
+        } else {
+            cout << arriba << " ";
+            arriba--; pass--;
+        }
     }
-    ll p = 0, i = 0;
-    while(p < sz(prefixP) && i < sz(prefixI)) {
-        if(prefixP[p] == prefixI[i]) { cout << "YES" << endl; return; }
-        
-        if(prefixP[p] > prefixI[i]) i++;
-        else p++;
-    }
-    cout << "NO" << endl;
+    cout << '\n';
 }
 
 int main(){
