@@ -25,27 +25,30 @@ const long double PI = acosl(-1.0L);
 
 void solve(){
     int n; cin >> n;
-    vi a(n);
+    priority_queue<pair<int,int>> pq;
     
-    for(int i = 0; i < n; i++) cin >> a[i];
-    sort(all(a));
-    
-    int x = n-2, y = n-1;
-    vpii parejas;
-    while(x != y) {
-        cout << "Conversaciones: " << a[x] << " " << a[y] <<endl;
-        cout << "indices: " << x << " " << y << endl;
-        if(a[x] > 0 && a[y] > 0) {
-            parejas.pb({x+1, y+1});
-            a[x]--; a[y]--;
-        }
-        if(a[x] == 0) x--;
-        if(a[y] == 0) y--;
+    for(int i = 1; i <= n; i++) {
+        int ai; cin >> ai;
+        if(ai > 0) pq.push({ai, i});
     }
     
-    int sn = sz(parejas);
-    cout << sn << endl;
-    for(int i = 0; i < sn; i++) cout << parejas[i].F << " " << parejas[i].S << endl;
+    vpii a;
+    
+    while(sz(pq) > 1) {
+        auto fi = pq.top();
+        pq.pop();
+        auto se = pq.top();
+        pq.pop();
+        
+        a.pb({fi.S, se.S});
+        fi.F--; se.F--;
+        
+        if(fi.F) pq.push(fi);
+        if(se.F) pq.emplace(se);
+    }
+    
+    cout << sz(a) << endl;
+    for(auto ai : a) cout << ai.F << " " << ai.S << endl;
 }
 
 int main(){
