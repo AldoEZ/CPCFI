@@ -23,12 +23,23 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-void solve() {
+void solve(){
+    int n; cin >> n;
+    
+    if(n <= 5) { cout << "MIT time" << endl; return;}
+    
+    int cont = 0, q = 5;
+    while(q < n) {
+        cont++;
+        q *= 5;
+    }
+    
+    cout << "MIT^" << cont+1 << " time" << endl;
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (int t = 1; t <= tc; t++)solve();
 }
