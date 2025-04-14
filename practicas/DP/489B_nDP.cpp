@@ -25,14 +25,27 @@ const long double PI = acosl(-1.0L);
 
 void solve() {
     int n; cin >> n;
-    vi b(n);
-    for(int i = 0; i < n; i++) cin >> b[i];
+    vi boys(n);
+    for(int i = 0; i < n; i++) cin >> boys[i];
+    sort(all(boys));
     
     int m; cin >> m;
-    vi g(m);
-    for(int j = 0; j < m; j++) cin >> g[j];
+    vi girls(m);
+    for(int j = 0; j < m; j++) cin >> girls[j];
+    sort(all(girls));
     
+    int resp = 0;
+    for(int b = 0; b < n; b++) {
+        for(int g = 0; g < m; g++) {
+            if(abs(boys[b]-girls[g]) <= 1) {
+                resp++;
+                girls[g] = INF;
+                break;
+            }
+        }
+    }
     
+    cout << resp << '\n';
 }
 
 int main(){
