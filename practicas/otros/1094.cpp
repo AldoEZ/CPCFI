@@ -1,3 +1,4 @@
+// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -24,11 +25,23 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
+	ll n; cin >> n;
+	vi a(n);
+	for(int i = 0; i < n; i++) cin >> a[i];
+	
+	ll movs = 0;
+	for(int i = 1; i < n; i++) {
+		if(a[i] < a[i-1]) {
+			movs += (a[i-1]-a[i]);
+			a[i] = a[i-1];
+		}
+	}
+	cout << movs << '\n';
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
 	//cin >> tc;
-	for (int t = 1; t <= tc; t++) solve();
+	for (int t = 1; t <= tc; t++)solve();
 }

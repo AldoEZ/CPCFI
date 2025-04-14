@@ -1,0 +1,1 @@
+{"name":"Local: 1071","url":"c:\\CPCFI\\practicas\\otros\\1071.cpp","tests":[{"id":1744527883014,"input":"3\n2 3\n1 1\n4 2","output":"8\n1\n15"},{"id":1744527927477,"input":"1\n4 5","output":"22"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\otros\\1071.cpp","group":"local","local":true}

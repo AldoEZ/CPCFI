@@ -24,11 +24,14 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
+    string s1, s2, s3; cin >> s1 >> s2 >> s3;
+    
+    cout << s1[0] << s2[0] << s3[0] << '\n';
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
-	for (int t = 1; t <= tc; t++) solve();
+	cin >> tc;
+	for (int t = 1; t <= tc; t++)solve();
 }

@@ -24,11 +24,26 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
+    int n; cin >> n;
+    int sum1 = 0, sum2 = 0; for(int i = 1; i <= 2*n; i++) sum1 += i;
+    
+    vi a(2*n-1); int c =  0;
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            int n; cin >> n;
+            if(i == j) { a[c] = n; c++; sum2 += n; }
+            else if(j-i == 1) { a[c] = n; c++; sum2 += n; }
+        }
+    }
+    
+    cout << sum1-sum2 << " ";
+    for(auto n : a) cout << n << " ";
+    cout << '\n';
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }

@@ -24,11 +24,30 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
+    string p,s;
+    cin >> p >> s;
+    
+    int i = 0, j = 0, ni = sz(p), nj = sz(s);
+    int cont1 = 1, cont2 = 0;
+    
+    while(i < ni && j < nj) {
+        if(p[i+1] == p[i]) cont1++;
+        if(p[i+1] != p[i]) {
+            while(s[j] == p[i]) {
+                cont2++;
+                j++;
+            }
+            if(cont2 > cont1*2) { cout << "NO" << '\n'; return; }
+            cont1 = cont2 = 0;
+        }
+        i++;
+    }
+    cout << "YES" << '\n';
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }

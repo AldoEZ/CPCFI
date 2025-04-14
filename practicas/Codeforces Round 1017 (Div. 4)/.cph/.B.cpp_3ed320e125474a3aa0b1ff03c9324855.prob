@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"c:\\CPCFI\\practicas\\Codeforces Round 1017 (Div. 4)\\B.cpp","tests":[{"id":1744560314735,"input":"4\n4 2 -2 2\n4 1 0 4\n3 3 -1 2\n9 8 -6 3","output":"0 2\n0 1\n-1 2\n-5 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\Codeforces Round 1017 (Div. 4)\\B.cpp","group":"local","local":true}
