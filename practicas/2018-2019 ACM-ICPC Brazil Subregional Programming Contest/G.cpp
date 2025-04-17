@@ -1,4 +1,3 @@
-// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -24,34 +23,18 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-ll binpow(ll a,ll b) {
-	ll ans = 1;
-	a%=MOD;
-	while(b){
-		if(b&1)(ans*=a)%=MOD;
-		(a*=a)%=MOD;
-		b>>=1;
-	}
-	return ans;
-}
-
 void solve() {
-    int n; cin >> n;
+    int P,R,C; cin >> P >> R >> C;
     
-    cout << 0 << '\n';
-    if(n >= 2) cout << 6 << '\n';
+    vi demanda(P); for(int i = 0; i < P; i++) cin >> demanda[i];
+    vi stock(R); for(int i = 0; i < R; i++) cin >> stock[i];
     
-    for(int k = 3; k <=n; k++) {
-        ll ans;
-        ans = ((binpow(k,4)-binpow(k,2))/2) - ((k-2)*(k-1)*4);
-		
-        cout << ans << '\n';
-    }
+    
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
 	//cin >> tc;
-	for (int t = 1; t <= tc; t++)solve();
+	for (int t = 1; t <= tc; t++) solve();
 }
