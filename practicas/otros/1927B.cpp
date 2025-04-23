@@ -26,18 +26,20 @@ const long double PI = acosl(-1.0L);
 void solve() {
     int n; cin >> n;
     vi a(n);
-	int l = 97, j = 97;
+	int l = 97;
+	char resp[n];
     for(int i = 0; i < n; i++) {
 		cin >> a[i];
-		if(a[i] > 0) { 
-			if(a[i]-a[i-1] == 1) cout << char(l-1);
-			else { cout << char(j); j++; }
-		} else { cout << char(l); l++; }
+		if(a[i] > 0) {
+			for(int j = 0; j < i; i++) { if(a[j] == a[i]-1) resp[i] = resp[j]; }
+			for(int k = 0; k < i; k++) { if(resp[k] == resp[i]) a[k] = a[i]; }
+		} else { resp[i] = char(l); l++; }
 	}
+	for(auto n : resp) cout << n;
 	cout << '\n';
 }
 
-int main(){
+int main() {
 	fastIO();
 	int tc = 1;
 	cin >> tc;
