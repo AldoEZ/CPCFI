@@ -1,4 +1,3 @@
-// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -24,34 +23,22 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-ll binpow(ll a,ll b) {
-	ll ans = 1;
-	a%=MOD;
-	while(b){
-		if(b&1)(ans*=a)%=MOD;
-		(a*=a)%=MOD;
-		b>>=1;
-	}
-	return ans;
-}
-
 void solve() {
-    ll n; cin >> n;
+    int n; cin >> n;
+    string s; cin >> s;
     
-    cout << 0 << '\n';
-    if(n >= 2) cout << 6 << '\n';
-    
-    for(ll k = 3; k <=n; k++) {
-        ll ans;
-        ans = (((k*k) * ((k*k)-1)) / 2) - ((k-2) * (k-1) * 4);
-		
-        cout << ans << '\n';
+    int ans = 0;
+    for(int i = 0; i < n; i++) {
+        string copy = s;
+        copy[i] = int(copy[i])^1;
+        for(int j = 0; j < n; j++) { if(copy[j] == '1') ans++; }
     }
+    cout << ans << '\n';
 }
 
 int main(){
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
-	for (int t = 1; t <= tc; t++)solve();
+	cin >> tc;
+	for (int t = 1; t <= tc; t++) solve();
 }

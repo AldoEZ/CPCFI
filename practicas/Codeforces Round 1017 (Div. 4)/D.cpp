@@ -25,24 +25,51 @@ const long double PI = acosl(-1.0L);
 
 void solve() {
     string p,s;
-    cin >> p >> s;
+    cin >> p; cin >> s;
     
-    int i = 0, j = 0, ni = sz(p), nj = sz(s);
-    int cont1 = 1, cont2 = 0;
+    int np = sz(p), ns = sz(s);
     
-    while(i < ni && j < nj) {
-        if(p[i+1] == p[i]) cont1++;
-        if(p[i+1] != p[i]) {
-            while(s[j] == p[i]) {
-                cont2++;
-                j++;
-            }
-            if(cont2 > cont1*2) { cout << "NO" << '\n'; return; }
-            cont1 = cont2 = 0;
+    vector<pair<char,int>> Pi;
+    char ref = p[0];
+    int cont = 1;
+    for(int i = 1; i < np; i++) {
+        if(p[i] == ref) cont++;
+        else {
+            Pi.pb({ref,cont});
+            ref = p[i];
+            cont = 1;
         }
-        i++;
     }
-    cout << "YES" << '\n';
+    Pi.pb({ref,cont});
+    
+    vector<pair<char,int>> Sl;
+    ref = s[0];
+    cont = 1;
+    for(int j = 1; j < ns; j++) {
+        if(s[j] == ref) cont++;
+        else {
+            Sl.pb({ref,cont});
+            ref = s[j];
+            cont = 1;
+        }
+    }
+    Sl.pb({ref, cont});
+    
+    np = sz(Pi), ns = sz(Sl);
+    if(np != ns) cout << "NO" << '\n';
+    else {
+        for(int i = 0; i < np; i++) {
+            if(Pi[i].F != Sl[i].F) {
+                cout << "NO" << '\n';
+                return;
+            }
+            if(Sl[i].S < Pi[i].S || Sl[i].S > 2*Pi[i].S) {
+                cout << "NO" << '\n';
+                return;
+            }
+        }
+        cout << "YES" << '\n';
+    }
 }
 
 int main(){
