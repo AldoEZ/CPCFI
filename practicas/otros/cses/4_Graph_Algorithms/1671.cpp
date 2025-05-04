@@ -1,26 +1,31 @@
+// cses
 #include <bits/stdc++.h>
 
 using namespace std;
 
 #define fastIO() ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define all(v) v.begin(),v.end()
-#define rall(v) v.rbegin(),v.rend()
-#define pb push_back
-#define sz(a) int(a.size())
+#define rall(v) v.rbegin(),v.rend()	
+#define pb push_back				
+#define sz(a) int(a.size())				
 #define F first
 #define S second
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vll;
+typedef vector<string> vs;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
+typedef vector<pair<int,int>> vpii;
+typedef vector<pair<ll,ll>> vpll;
 const int MOD = 1e9+7;
-const int INF = INT_MAX;
-const ll INF64 = LLONG_MAX;
-const long double EPS = 1e-9;	
+const int INF = INT_MAX;	
+const ll INF64 = LLONG_MAX;		
+const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-vll dijkstra(int v, int source, vector<vector<pll>>& adj) {
+vll dijkstra(ll v, ll source, vector<vpll>& adj) {
     vll dist(v+1, INF64);
     priority_queue<pll, vector<pll>, greater<pll>> pq;
     
@@ -47,22 +52,24 @@ vll dijkstra(int v, int source, vector<vector<pll>>& adj) {
     return dist;
 }
 
-int main(){
-    fastIO();
-    int v, e; 
-	cin >> v >> e; 
-    vector<vector<pll>> adj(v+1);
-	
-	for(int i =  0; i < e; i++) {
-		ll u,j,w;
-		cin >> u >> j >> w;
-		adj[u].push_back({j,w});
-	}
-	
-    vll resp = dijkstra(v, 1, adj);
-    for(int i = 1; i <= v; i++) {
-        cout << resp[i] << " ";
+void solve() {
+    ll n, m; cin >> n >> m;
+    
+    vector<vpll> adj(n+1);
+    
+    for(int i = 0; i < m; i++) {
+        ll a,b,c; cin >> a >> b >> c;
+        adj[a].pb({b,c});
     }
-    cout << endl;
-    return 0;
+    
+    vll ans = dijkstra(n, 1, adj);
+    for(int i = 1; i < sz(ans); i++) cout << ans[i] << " ";
+    cout << '\n';
+}
+
+int main() {
+	fastIO();
+	int tc = 1;
+	//cin >> tc;
+	for (int t = 1; t <= tc; t++) solve();
 }
