@@ -7,9 +7,10 @@ using namespace std;
 typedef long long ll;
 typedef vector<ll> vll;
 typedef pair<ll,ll> pll;
+typedef vector<pll> vpll;
 const ll INF64 = LLONG_MAX;
 
-vll dijkstra(int v, int source, vector<vector<pll>>& adj) {
+vll dijkstra(int v, int source, vector<vpll>& adj) {
     vll dist(v+1, INF64);
     priority_queue<pll, vector<pll>, greater<pll>> pq;
     
