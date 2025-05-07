@@ -25,13 +25,14 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-vi dijkstra(int v, int source, vector<vpii>& adj) {
-    vi dist(v+1, INF);
+vll dist;
+
+vi dijkstra(ll v, int source, vector<vpii>& adj) {
+    dist.resize(v+1, INF64);
+    vi nodes(v+1, -1);
     priority_queue<pii, vpii, greater<pii>> pq;
-    vector<vi> nodes(v+1);
     
     dist[source] = 0;
-    nodes[source] = {source};
     pq.push({0, source});
     
     while(!pq.empty()) {
@@ -47,28 +48,37 @@ vi dijkstra(int v, int source, vector<vpii>& adj) {
             
             if(dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
-                nodes[v] = nodes[u];
-                nodes[v].pb(v);
+                nodes[v] = u;
                 pq.push({dist[v], v});
             }
         }
     }
-    
-    return nodes[v];
+    return nodes;
 }
 
 void solve() {
-    int n,m; cin >> n >> m;
+    ll n, m;
+    cin >> n >> m;
     vector<vpii> adj(n+1);
-    if(m == 0) { cout << -1 << '\n'; return; }
+    
     while(m--) {
-        int a,b,w; cin >> a >> b >> w;
-        adj[a].pb({b,w});
-        adj[b].pb({a,w});
+        ll a, b, w;
+        cin >> a >> b >> w;
+        adj[a].pb({b, w});
+        adj[b].pb({a, w});
     }
-    vi ans = dijkstra(n,1,adj);
-    if(sz(ans) > 0) for(auto n : ans) cout << n << " ";
-    else cout << -1;
+    
+    vi pa = dijkstra(n, 1, adj);
+    if(dist[n] == INF64) { cout << -1 << '\n'; return; }
+    
+    vi ans; int i = n;
+    while(i != 1) {
+        ans.push_back(i);
+        i = pa[i];
+    } ans.pb(1);
+    reverse(all(ans));
+    
+    for(auto i : ans) cout << i << " ";
     cout << '\n';
 }
 
