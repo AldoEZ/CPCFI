@@ -10,13 +10,15 @@ using namespace std;
 #define F first
 #define S second
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef vector<string> vs;
+typedef vector<bool> vb;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
-typedef vector<pair<int,int>> vpii;
-typedef vector<pair<ll,ll>> vpll;
+typedef vector<pii> vpii;
+typedef vector<pll> vpll;
 const int MOD = 1e9+7;
 const int INF = INT_MAX;	
 const ll INF64 = LLONG_MAX;		
@@ -24,25 +26,23 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int n; cin >> n;
-    vi a(n);
-    for(int i = 0; i < n; i++) cin >> a[i];
+    char col; cin >> col;
+    int row; cin >> row;
+    int ascii = 97;
     
-    
-    vector<vi> list(n);
-    for(int i = 0; i < n; i++) {
-        if(a[i] == -1) {
-            list[i].pb(i+1);
-            for(int j = 0; j < n; j++) {
-                if(a[j] == list[i][sz(list[i])-1]) list[i].pb(j+1);
-            }
-        }
+    for(int i = 1; i <= 8; i++) {
+        if(i == row) continue;
+        cout << col << i << '\n';
+    }
+    for(int i = 0; i < 8; i++) {
+        if(char(ascii+i) == col) continue;
+        cout << char(ascii+i) << row << '\n';
     }
 }
 
-int main(){
+int main() {
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }

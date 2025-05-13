@@ -38,7 +38,6 @@ bool bfs(int start, vector<vi>& adj, vi& bfsA) {
         q.pop();
         if(bfsA[i] != node) f = 0;
         i++;
-        cout << node << " ";
         
         for(auto v : adj[node]) {
             if(!visited[v]) {
@@ -47,7 +46,6 @@ bool bfs(int start, vector<vi>& adj, vi& bfsA) {
             }
         }
     }
-    cout << '\n';
     return f;
 }
 
@@ -61,10 +59,8 @@ void solve() {
         adj[b].pb(a);
     }
     for(int i = 0; i < n; i++) cin >> bfsA[i];
-    bool BFS = bfs(1,adj,bfsA);
     
-    if(BFS) cout << "Yes" << '\n';
-    else cout << "No" << '\n';
+    cout << (bfs(1,adj,bfsA)? "Yes" : "No") << '\n';
 }
 
 int main() {
