@@ -1,1 +1,0 @@
-{"name":"Local: mitTime","url":"c:\\CPCFI\\practicas\\mit_round_beginner\\mitTime.cpp","tests":[{"id":1737312985679,"input":"5\n4\n5\n13\n126\n1","output":"MIT time\nMIT time\nMIT^2 time\nMIT^4 time\nMIT time"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\mit_round_beginner\\mitTime.cpp","group":"local","local":true}

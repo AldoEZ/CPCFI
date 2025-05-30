@@ -1,1 +1,0 @@
-{"name":"Local: 1635","url":"/home/aldo/Documentos/CPCFI/clases/dia12/1635.cpp","tests":[{"id":1727217490433,"input":"3 5\n1 2 4","output":"10"},{"id":1727217816673,"input":"3 9\n2 3 5","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/clases/dia12/1635.cpp","group":"local","local":true}

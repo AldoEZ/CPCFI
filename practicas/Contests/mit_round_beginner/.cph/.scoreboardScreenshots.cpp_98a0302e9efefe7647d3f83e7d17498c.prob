@@ -1,1 +1,0 @@
-{"name":"Local: scoreboardScreenshots","url":"c:\\CPCFI\\practicas\\mit_round_beginner\\scoreboardScreenshots.cpp","tests":[{"id":1737317138259,"input":"3 2\n1 1\n0 0\n0 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\mit_round_beginner\\scoreboardScreenshots.cpp","group":"local","local":true}

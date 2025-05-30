@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"c:\\CPCFI\\practicas\\Contests\\2025_ICPC_primer_fecha\\A.cpp","tests":[{"id":1746598506004,"input":"AB\n3\nABAB\nABA\nC","output":"Yes\nNo\nNo"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\Contests\\2025_ICPC_primer_fecha\\A.cpp","group":"local","local":true}

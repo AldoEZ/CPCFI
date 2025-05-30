@@ -1,1 +1,0 @@
-{"name":"Local: D","url":"/home/aldo/Documentos/CPCFI/contests/contest10/D.py","tests":[{"id":1726330662236,"input":"3\nmike 3\nandrew 5\nmike 2","output":"andrew"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/contests/contest10/D.py","group":"local","local":true}

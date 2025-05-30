@@ -1,1 +1,0 @@
-{"name":"Local: K","url":"c:\\CPCFI\\practicas\\2020 ICPC Gran Premio de Mexico 3ra Fech\\K.cpp","tests":[{"id":1740943827867,"input":"2\n3 3 3 7 2\n3 3 3 10 2","output":"18\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\2020 ICPC Gran Premio de Mexico 3ra Fech\\K.cpp","group":"local","local":true}

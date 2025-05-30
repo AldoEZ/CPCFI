@@ -1,1 +1,0 @@
-{"name":"Local: 1843","url":"/home/aldo/Documentos/CPCFI/1843.py","tests":[{"id":1727735269715,"input":"1\n10000000000000000","output":"19999999999999980"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/aldo/Documentos/CPCFI/1843.py","group":"local","local":true}

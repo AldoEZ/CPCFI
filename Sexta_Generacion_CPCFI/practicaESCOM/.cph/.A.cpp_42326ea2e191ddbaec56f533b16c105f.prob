@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"c:\\CPCFI\\practicaESCOM\\A.cpp","tests":[{"id":1727494741633,"input":"5\nHam\nSausage\nTurkey\nBeef\nTuna","output":"Sausage"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicaESCOM\\A.cpp","group":"local","local":true}
