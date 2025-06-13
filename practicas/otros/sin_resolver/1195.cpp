@@ -25,7 +25,43 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
+vll dijkstra(int v, int source, vector<vpll>& adj) {
+    vll dist(v+1, INF64);
+    priority_queue<pll, vector<pll>, greater<pll>> pq;
+    
+    dist[source] = 0;
+    pq.push({0, source});
+    
+    while(!pq.empty()) {
+        ll d = pq.top().F;
+        ll u = pq.top().S;
+        pq.pop();
+        
+        if(d > dist[u]) continue;
+        
+        for(auto &edge : adj[u]) {
+            ll v = edge.F;
+            ll weight = edge.S;
+            
+            if(dist[u] + weight < dist[v]) {
+                dist[v] = dist[u] + weight;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    return dist;
+}
+
 void solve() {
+	int v, e; 
+	cin >> v >> e; 
+    vector<vpll> adj(v+1);
+	
+	for(int i =  0; i < e; i++) {
+		ll u,j,w;
+		cin >> u >> j >> w;
+		adj[u].push_back({j,w});
+	}
 }
 
 int main() {

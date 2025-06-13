@@ -10,36 +10,48 @@ using namespace std;
 #define F first
 #define S second
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef vector<string> vs;
+typedef vector<bool> vb;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
-typedef vector<pair<int,int>> vpii;
-typedef vector<pair<ll,ll>> vpll;
+typedef vector<pii> vpii;
+typedef vector<pll> vpll;
 const int MOD = 1e9+7;
 const int INF = INT_MAX;	
 const ll INF64 = LLONG_MAX;		
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-void solve() {
-    int n; cin >> n;
-    vi a(n);
-	int l = 97;
-	char resp[n];
-    for(int i = 0; i < n; i++) {
-		cin >> a[i];
-		if(a[i] > 0) {
-			for(int j = 0; j < i; i++) { if(a[j] == a[i]-1) resp[i] = resp[j]; }
-			for(int k = 0; k < i; k++) { if(resp[k] == resp[i]) a[k] = a[i]; }
-		} else { resp[i] = char(l); l++; }
+void solve(){
+	int n;cin >> n;
+	vi a(n-1);
+	int mx = 0;
+	for(int &i:a)cin >> i,mx =max(i,mx);
+	vi cnt(mx+1,0);
+	cnt[0] = 1;
+    
+	auto binpow = [&](ll a, ll b)->ll{
+		ll res = 1;
+		while(b){
+			if(b&1)res=res*a%MOD;
+			a =a*a%MOD;
+			b>>=1;
+		}
+		return res;
+	};
+	
+	for(int i=0;i<n-1;i++)cnt[a[i]]++;
+	ll ans = 1;
+	for(int i=1;i<=mx;i++){
+		ans =ans*binpow(cnt[i-1],cnt[i])%MOD;
 	}
-	for(auto n : resp) cout << n;
-	cout << '\n';
+	cout << ans << '\n';
 }
 
-int main() {
+int main(){
 	fastIO();
 	int tc = 1;
 	cin >> tc;

@@ -25,42 +25,61 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-bool bfs(int start, vector<vi>& adj, vi& bfsA) {
+vi nOrd;
+bool pos(int a, int b) {
+    return nOrd[a] < nOrd[b];
+}
+
+vi bfs(int start, vector<vi>& adj) {
     vector<bool> visited(sz(adj), 0);
     queue<int> q;
-    bool f = 1; int i = 0;
+    vi ans;
     
     visited[start] = 1;
     q.push(start);
     
-    while(!q.empty()) {
-        int node = q.front();
-        q.pop();
-        if(bfsA[i] != node) f = 0;
-        i++;
-        
-        for(auto v : adj[node]) {
-            if(!visited[v]) {
-                visited[v] = 1;
-                q.push(v);  
-            }
+    while(!q.empty()){
+        queue<int> temp;
+        while(!q.empty()) {
+            int node = q.front();
+            q.pop();
+            ans.pb(node);
+            visited[node] = 1;
+            
+            for(auto v : adj[node])
+                if(!visited[v])
+                    temp.push(v);
         }
+        q = temp;
     }
-    return f;
+    return ans;
 }
 
 void solve() {
     int n; cin >> n;
     vector<vi> adj(n+1);
     vi bfsA(n);
+    nOrd.resize(n+1);
     for(int i = 1; i < n; i++) {
         int a,b; cin >> a >> b;
         adj[a].pb(b);
         adj[b].pb(a);
     }
-    for(int i = 0; i < n; i++) cin >> bfsA[i];
+    for(int i = 0; i < n; i++) {
+        cin >> bfsA[i];
+        nOrd[bfsA[i]] = i;
+    }
+    for(int i = 1; i <= n; i++) sort(all(adj[i]), pos);
     
-    cout << (bfs(1,adj,bfsA)? "Yes" : "No") << '\n';
+    vi ans = bfs(1,adj);
+    
+    for(int i = 0; i < n; i++) {
+        if(bfsA[i] != ans[i]) {
+            cout << "No\n";
+            return;
+        }
+    }
+    cout << "Yes\n";
 }
 
 int main() {
