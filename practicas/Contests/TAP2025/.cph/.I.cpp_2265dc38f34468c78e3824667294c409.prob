@@ -1,0 +1,1 @@
+{"name":"Local: I","url":"c:\\CPCFI\\practicas\\Contests\\TAP2025\\I.cpp","tests":[{"id":1756852538866,"input":"3 3\n15 10\n1 2 1\n13 8\n2 2 2\n16 4\n1 1 1\n","output":"19 22 19 27"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\Contests\\TAP2025\\I.cpp","group":"local","local":true}
