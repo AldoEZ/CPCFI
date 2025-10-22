@@ -28,8 +28,7 @@ const long double PI = acosl(-1.0L);
 void solve() {
     int A,B,C; cin >> A >> B >> C;
     
-    if((B-A) % C == 0) cout << "S" << '\n';
-    else cout << 'N' << '\n';
+	cout << ((B-A)%C == 0? "S" : "N");
 }
 
 int main() {
