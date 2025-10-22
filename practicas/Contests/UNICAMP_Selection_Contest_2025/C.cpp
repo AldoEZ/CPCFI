@@ -1,4 +1,3 @@
-// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -27,19 +26,28 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    ll a,b; cin >> a >> b;
+    int n; cin >> n;
+    string s; cin >> s;
     
-    while(a>0 && b>0) {
-        if(b>a) swap(a,b);
-        a -= 2;
-        b--;
+    int i = 0, aux = 0;
+    pii PosCont = {0,0};
+    while(i < sz(s)) {
+        if(s[i] == '(') aux++;
+        else aux--;
+        
+        if(aux <= PosCont.S && aux != 0) {
+            PosCont.S = aux;
+            PosCont.F = i+1;
+        }
+        i++;
     }
-    cout << ((!a && !b)? "YES\n" : "NO\n");
+    
+    cout << PosCont.F << '\n';
 }
 
 int main() {
 	fastIO();
 	int tc = 1;
-	cin >> tc;
+	//cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }

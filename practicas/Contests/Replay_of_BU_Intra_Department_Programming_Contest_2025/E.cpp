@@ -1,4 +1,3 @@
-// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,15 +25,24 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-void solve() {
-    ll a,b; cin >> a >> b;
-    
-    while(a>0 && b>0) {
-        if(b>a) swap(a,b);
-        a -= 2;
-        b--;
+ll binPow(ll a, ll b) {
+    ll ans = 1;
+    while(b) {
+        if(b&1) (ans *= a) %= MOD;
+        (a *= a) %= MOD;
+        b >>= 1;
     }
-    cout << ((!a && !b)? "YES\n" : "NO\n");
+    return ans;
+}
+
+void solve() {
+    int n; cin >> n;
+    
+    int p = binPow(2,n);
+    
+    int inv = binPow(p,MOD-2);
+    
+    cout << ((p-2)*inv) % MOD << '\n';
 }
 
 int main() {

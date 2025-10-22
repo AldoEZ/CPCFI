@@ -1,4 +1,3 @@
-// cses
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,20 +25,34 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-void solve() {
-    ll a,b; cin >> a >> b;
+void solve(){
+	int n; cin >> n;
+	int cnt = 0;
+	int mxO = 0,mxE = 0;
     
-    while(a>0 && b>0) {
-        if(b>a) swap(a,b);
-        a -= 2;
-        b--;
-    }
-    cout << ((!a && !b)? "YES\n" : "NO\n");
+	for(int i=0,x;i<n;i++){
+		cin >> x;
+		if(x&1){
+			cnt++;
+			mxO = max(mxO,x);
+		}else{
+			mxE = max(mxE,x);
+		}
+	}
+    
+	if(cnt == 0 || cnt == n){
+		cout << -1 << '\n';
+		return;
+	}
+    
+	cout << (cnt&1?mxE:mxO) << '\n';
 }
 
-int main() {
-	fastIO();
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
 	int tc = 1;
-	cin >> tc;
-	for (int t = 1; t <= tc; t++) solve();
+	//cin >> tc;
+	for (int t = 1; t <= tc; t++)solve();
 }

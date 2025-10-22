@@ -19,7 +19,7 @@ typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<pii> vpii;
 typedef vector<pll> vpll;
-const int MOD = 1e9+7;
+const int MOD = 998244353;
 const int INF = INT_MAX;	
 const ll INF64 = LLONG_MAX;		
 const long double EPS = 1e-9;			
@@ -58,7 +58,6 @@ ll ncr(ll a,ll b) {
 void solve() {
     ll n,a1,x,y,m,k; cin >> n >> a1 >> x >> y >> m >> k;
     vll a; a.pb(a1);
-    ll mod = 998244353;
     
     for(ll i = 1; i < n; i++) {
         ll ai = (a[i-1]*x+y)%m;
@@ -73,9 +72,9 @@ void solve() {
             if(xi < k) break;
             
             ll comb = ncr(xi,k);
-            bi += ((comb*a[j])%mod);
+            bi += ((comb*a[j])%MOD);
         }
-        bi %= mod;
+        bi %= MOD;
         b.pb(bi);
     }
     
