@@ -26,43 +26,10 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-<<<<<<< HEAD
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int A,B,C; cin >> A >> B >> C;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
-    }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
-=======
-    int n;cin >> n;
-    set<int> st;
-    int sum;
-    for(int i=0;i<n;i++){
-        int x;cin >>x;
-        sum+=x;
-        st.insert(x);
-    }
-
-    int p = sum/3;
-    int ans = 0;
-
-    while(!st.empty()){
-        int v = *st.begin();
-        int w = v+p;
-        if(w>p)w-=p; 
-        int u = w+p;
-        if(u>p)u-=p;
-        bool ok = 1;
-        ok &= (st.count(w));
-        ok &= (st.count(u));
-        if(ok){ans++;st.erase()}
-    }
-
->>>>>>> defe32ac7b6e02db6e84800d177bbbc2b95340ae
+    if((B-A) % C == 0) cout << "S" << '\n';
+    else cout << 'N' << '\n';
 }
 
 int main() {

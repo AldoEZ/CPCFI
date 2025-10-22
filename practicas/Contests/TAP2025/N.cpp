@@ -26,43 +26,19 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-<<<<<<< HEAD
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
-    
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    int n; cin >> n;
+    ll xmin=INF64,xmax=0, ymin=INF64,ymax=0;
+    for(int i = 0; i < n; i++) {
+        ll x,y; cin >> x >> y;
+        xmin = (x<xmin)? x : xmin;
+        xmax = (x>xmax)? x : xmax;
+        
+        ymin = (y<ymin)? y : ymin;
+        ymax = (y>ymax)? y : ymax;
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
-=======
-    int n;cin >> n;
-    set<int> st;
-    int sum;
-    for(int i=0;i<n;i++){
-        int x;cin >>x;
-        sum+=x;
-        st.insert(x);
-    }
-
-    int p = sum/3;
-    int ans = 0;
-
-    while(!st.empty()){
-        int v = *st.begin();
-        int w = v+p;
-        if(w>p)w-=p; 
-        int u = w+p;
-        if(u>p)u-=p;
-        bool ok = 1;
-        ok &= (st.count(w));
-        ok &= (st.count(u));
-        if(ok){ans++;st.erase()}
-    }
-
->>>>>>> defe32ac7b6e02db6e84800d177bbbc2b95340ae
+    //cout << xmin << " " << xmax << " " << ymin << " " << ymax << " ";
+    ll ans = (xmax-xmin+2)*2 + (ymax-ymin+2)*2;
+    cout << ans << '\n';
 }
 
 int main() {
