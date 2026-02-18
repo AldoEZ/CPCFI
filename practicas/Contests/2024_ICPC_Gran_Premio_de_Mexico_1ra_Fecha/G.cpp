@@ -26,16 +26,34 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n; cin >> n;
+    vi stones(n);
+    string ans;
+    int cnt = 1;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    for(int i = 0; i < n; i++) cin >> stones[i];
+    
+    sort(all(stones));
+    stones.erase(unique(all(stones)), stones.end());
+    
+    if(stones[0] != 1) {
+        cout << "Alicius" << '\n';
+        return;
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    for(int i = 1; i < sz(stones); i++) {
+        if(stones[i] >= stones[i-1]+2) break;
+        cnt++;
+    }
+    
+    if(cnt == sz(stones)) {
+        if(cnt%2 == 0) ans = "Bobius";
+        else ans = "Alicius";
+    } else {
+        if(cnt%2 == 0) ans = "Alicius";
+        else ans = "Bobius";
+    }
+    cout << ans << '\n';
 }
 
 int main() {

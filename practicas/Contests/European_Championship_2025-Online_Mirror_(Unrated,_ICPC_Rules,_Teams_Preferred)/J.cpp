@@ -26,21 +26,42 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n; cin >> n;
+    string s; cin >> s;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
-    }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    bool check = 0;
+    int cnt = 0;
+    
+    for(int i=0;i<n;i++) { if(s[i]=='W') cnt++; }
+	if(cnt%2!=0) {
+		cout<<"NO\n";
+		return;
+	}
+	for(int i=0; i<cnt/2; i++) { if(s[i]=='R') check=1; }
+	if(check) {
+		cout<<"NO\n";
+		return;
+	}
+	cnt = 0;
+    
+	for(int i=n*2-1; i>=n; i--) { if(s[i]=='R') cnt++; }
+	if(cnt%2!=0) {
+		cout<<"NO\n";
+		return;
+	}
+	check=0;
+	for(int i=n*2-1; i>=n*2-cnt/2; i--) { if(s[i]=='W')check=1; }
+	if(check) {
+		cout<<"NO\n";
+		return;
+	}
+    
+	cout<<"YES\n";
 }
 
 int main() {
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }

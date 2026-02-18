@@ -25,22 +25,13 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
-void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
-    
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
-    }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
-}
-
 int main() {
 	fastIO();
 	int tc = 1;
-	//cin >> tc;
-	for (int t = 1; t <= tc; t++) solve();
+	cin >> tc;
+	for (int t = 1; t <= tc; t++) {
+        ll n; cin >> n;
+        if(n==1) cout << 0 << '\n';
+        else cout << (n==2? 1 : n) << '\n';
+    }
 }

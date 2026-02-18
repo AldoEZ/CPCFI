@@ -26,16 +26,14 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n, k; cin >> n >> k;
+    vs nicknames(n);
+    for(int i = 0; i < n; i++) cin >> nicknames[i];
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
-    }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    set<string> ans;
+    for(int i = 0; i < n; i++) ans.insert(nicknames[i].substr(0,k));
+    
+    cout << sz(ans) << '\n';
 }
 
 int main() {

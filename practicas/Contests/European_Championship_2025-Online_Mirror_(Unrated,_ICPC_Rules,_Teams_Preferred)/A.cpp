@@ -26,16 +26,42 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n, m;
+    cin >> n >> m;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    vector<vb> g(n, vb(n));
+    
+    vector<vi> ans;
+    for (int i = 0; i < m; i++) {
+        int a, b;
+        cin >> a >> b;
+        a--;
+        b--;
+        g[a][b] = true;
+        if (g[b][a]) {
+            cout << "NO\n";
+            return;
+        }
+        
+        vector<int> p {a, b};
+        for (int x = 0; x < n; x++) {
+            if (x != a && x != b) {
+                p.push_back(x);
+            }
+        }
+        ans.push_back(p);
+        swap(p[0], p[1]);
+        reverse(p.begin(), p.end());
+        ans.push_back(p);
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    cout << "YES\n";
+    cout << ans.size() << "\n";
+    for (auto p : ans) {
+        for (auto x : p) {
+            cout << x + 1 << " \n"[x == p.back()];
+        }
+    }
 }
 
 int main() {

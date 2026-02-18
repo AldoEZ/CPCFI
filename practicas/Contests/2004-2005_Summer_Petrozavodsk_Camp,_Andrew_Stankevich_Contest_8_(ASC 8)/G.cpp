@@ -25,22 +25,40 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
+void setIO(string p){
+	freopen((p + ".in").c_str(), "r", stdin);
+	freopen((p + ".out").c_str(), "w", stdout);
+}
+
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n; cin >> n;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    int maxLenght = ceil(sqrt(n));
+    vi ans;
+    
+    int cnt1 = n, cnt2 = n-maxLenght+1, bloques = (n+maxLenght-1)/maxLenght;
+    for(int i = 1; i <= bloques-1; i++) {
+        for(int j = cnt2; j <= cnt1; j++) ans.pb(j);
+        
+        cnt1 = cnt2-1;
+        cnt2 -= maxLenght;
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    if(bloques == maxLenght) {
+        for(int i = 1; i <= cnt1; i++) ans.pb(i);
+    } else {
+        for(int i = 2; i <= cnt1; i++) ans.pb(i);
+        ans.pb(1);
+    }
+    
+    reverse(all(ans));
+    for(auto i : ans) cout << i << " ";
 }
 
 int main() {
 	fastIO();
 	int tc = 1;
 	//cin >> tc;
-	for (int t = 1; t <= tc; t++) solve();
+    //setIO("perm");
+    solve();
 }

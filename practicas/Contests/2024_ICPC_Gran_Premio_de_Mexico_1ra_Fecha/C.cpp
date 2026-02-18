@@ -26,16 +26,29 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
-    
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    vector<int> l1(3), l2(3);
+    cin >>  l1[0]>> l1[1] >> l1[2];
+    cin >> l2[0] >> l2[1] >> l2[2];
+    vector<int> ans(9);
+    int cnt=0;
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            ans[cnt]=l1[i]/l2[j%3];
+            cnt++;
+        }
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    int answer=0;
+    for(int i=0; i<3; i++){
+        for(int j=3; j<6; j++){
+            for(int k=6; k<9; k++){
+                if(i+3!=j && j+3!=k && i+6!=k){
+                    answer=max(answer, ans[i]*ans[j]*ans[k]);
+                }
+            }
+        }
+    }
+    cout<<answer<<'\n';
 }
 
 int main() {

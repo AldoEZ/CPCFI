@@ -26,16 +26,23 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
+    int n; cin >> n;
+    vi numbers(n);
+    for(auto &i : numbers) cin >> i;
     
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    vector<vi> dp(n, vi(n,INF));
+    for(int i = n-2; i >= 0; i--) {
+        for(int j = 0; j < n; j++) {
+            if(j <= i) continue;
+            dp[i][j] = min({dp[i+1][j], dp[i][j-1], abs(numbers[i]-numbers[j])});
+        }
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    int q; cin >> q;
+    while(q--) {
+        int l, r; cin >> l >> r;
+        cout << dp[l-1][r-1] << '\n';
+    }
 }
 
 int main() {

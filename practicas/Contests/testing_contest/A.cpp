@@ -26,16 +26,22 @@ const long double EPS = 1e-9;
 const long double PI = acosl(-1.0L);
 
 void solve() {
-    int N, R; cin >> N >> R;
-    if(R == N){ cout << '*'; return; }
-    
-    vb a(N+1, 0);
-    for(int i = 0; i < R; i++) {
-        int n; cin >> n;
-        a[n]=1;
+    int n; cin >> n;
+    int cntEve = 0, cntAle = 0;
+    while(n--) {
+        string g1, g2; cin >> g1 >> g2;
+        if(g1 == "Piedra" && g2 == "Tijeras") cntEve++;
+        else if(g1 == "Tijeras" && g2 == "Papel") cntEve++;
+        else if(g1 == "Papel" && g2 == "Piedra") cntEve++;
+        
+        else if(g2 == "Tijeras" && g1 == "Papel") cntAle++;
+        else if(g2 == "Papel" && g1 == "Piedra") cntAle++;
+        else if(g2 == "Piedra" && g1 == "Tijeras") cntAle++;
     }
-    for(int i = 1; i <= N; i++) if(!a[i]) cout << i << ' ';
-    cout << '\n';
+    
+    if(cntEve > cntAle) cout << "Eve" << '\n';
+    else if(cntEve < cntAle) cout << "Ale" << '\n';
+    else cout << "Empate" << '\n';
 }
 
 int main() {
