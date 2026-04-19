@@ -1,16 +1,4 @@
 // longest common subsequence
-#include <bits/stdc++.h>
-
-using namespace std;
-			
-#define sz(a) int(a.size())
-typedef long long ll;
-typedef vector<ll> vll;
-
-string s1 = "AGGTAB", s2 = "GXTXAYB";
-ll m = sz(s1), n = sz(s2);
-vector<vll> memo(m+1, vll(n+1,-1));
-
 ll lcs(string& s1, string& s2, ll m, ll n, vector<vll>& memo) {
     if(m == 0 || n == 0) return 0;
     

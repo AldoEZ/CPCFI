@@ -1,13 +1,4 @@
 // longest increasing subsequence
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define all(v) v.begin(),v.end()			
-#define sz(a) int(a.size())
-typedef long long ll;
-typedef vector<ll> vll;
-
 ll lis(vll& arr) {
     ll n = sz(arr);
     vll lis(n,1);

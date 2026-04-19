@@ -1,49 +1,31 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// BeginCodeSnip{DSU}
-class DisjointSets {
-    private:
-        vector<int> parents;
-        vector<int> sizes;
-    
-    public:
-        DisjointSets(int size) : parents(size), sizes(size, 1) {
-            for (int i = 0; i < size; i++) { parents[i] = i; }
-        }
-        
-        /** @return the "representative" node in x's component */
-        int find(int x) { return parents[x] == x ? x : (parents[x] = find(parents[x])); }
-        
-        /** @return whether the merge changed connectivity */
-        bool unite(int x, int y) {
-            int x_root = find(x);
-            int y_root = find(y);
-            if (x_root == y_root) { return false; }
-            
-            if (sizes[x_root] < sizes[y_root]) { swap(x_root, y_root); }
-            sizes[x_root] += sizes[y_root];
-            parents[y_root] = x_root;
-            return true;
-        }
-        
-        /** @return whether x and y are in the same connected component */
-        bool connected(int x, int y) { return find(x) == find(y); }
-};
-// EndCodeSnip
-
-int main() {
-	int node_num, query_num;
-	cin >> node_num >> query_num;
-    
-	DisjointSets dsu(node_num);
-	for (int i = 0; i < query_num; i++) {
-		int type, u, v;
-		cin >> type >> u >> v;
-		if (type == 0) {
-			dsu.unite(u, v);
-		} else {
-			cout << dsu.connected(u, v) << endl;
+class DSU{
+	private:
+	vi parent,rank,size;
+	int c;
+	public:
+	int mx = 0;
+	DSU(int n):parent(n+1),rank(n+1,0),size(n+1,1),c(n){
+		iota(all(parent),0);
+	}
+	
+	int find(int u){return parent[u] == u?u:parent[u] = find(parent[u]) ;}
+	
+	bool same(int u,int v){return find(u)==find(v);}
+	
+	int get_size(int u){return size[find(u)];}
+	
+	int count(){return c;}
+	
+	void merge(int u,int v){
+		u = find(u);
+		v = find(v);
+		if(u!=v){
+			c--;
+			if(rank[u] > rank[v])swap(u,v);
+			parent[u] = v;
+			size[v] += size[u];
+			if(rank[u] == rank[v])rank[v]++;
+			mx = max(mx,size[v]);
 		}
 	}
-}
+};

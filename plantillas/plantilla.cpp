@@ -25,6 +25,11 @@ const ll INF64 = LLONG_MAX;
 const long double EPS = 1e-9;			
 const long double PI = acosl(-1.0L);
 
+void setIO(string p){
+	freopen((p + ".in").c_str(), "r", stdin);
+	freopen((p + ".out").c_str(), "w", stdout);
+}
+
 void solve() {
 }
 

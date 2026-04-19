@@ -1,12 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define pb push_back				
-#define sz(a) int(a.size())
-typedef vector<int> vi;
-
-vi LPS(string sb, int m) {
+vi lps(string sb, int m) {
     vi lps(m,0);
     
     int i = 1, j = 0;
@@ -27,12 +19,12 @@ vi LPS(string sb, int m) {
     return lps;
 }
 
-vi KMP() {
+vi kmp() {
     string s; cin >> s;
     string sb; cin >> sb;
     
     int n = sz(s), m  = sz(sb);
-    vi lps = LPS(sb,m);
+    vi lps = lps(sb,m);
     int i = 0, j = 0;
     vi ans;
     
