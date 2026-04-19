@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"c:\\CPCFI\\practicas\\Contests\\RPC-2026-Feb\\A.cpp","tests":[{"id":1771705626347,"input":"1 1 1 1 1 1 1 1 1 1","output":"1023"},{"id":1771705638025,"input":"0 1 2 3 0 0 4 2 1 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CPCFI\\practicas\\Contests\\RPC-2026-Feb\\A.cpp","group":"local","local":true}
