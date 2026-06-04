@@ -31,6 +31,28 @@ void setIO(string p){
 }
 
 void solve() {
+	int n; cin >> n;
+	vi a(n);
+	for(auto &i : a) cin >> i;
+	string s; cin >> s;
+	
+	vi nums(n); nums[0] = 1;
+	for(int i = 0; i < n-1; i++) {
+		if(s[i] == '<') nums[i+1] = nums[i] + 1;
+		else if(s[i] == '>') nums[i+1] = nums[i] - 1;
+		else nums[i+1] = nums[i];
+	}
+	
+	int sumOp = 0;
+	for(int i = 0; i < n-1; i++) {
+		if(s[i] == '<') sumOp++;
+		else if(s[i] == '>') sumOp--;
+		else continue;
+	}
+	
+	if(sumOp < 0) {
+		for(int i = 0; i < n; i++) nums[i] += abs(sumOp);
+	}
 }
 
 int main() {

@@ -42,34 +42,31 @@ ll binPow(ll a, ll b) {
 }
 
 void solve() {
-    ll n; cin >> n;
+    ll k; cin >> k;
+    ll numerador = 1, denominador = 1;
     
-    ll e = n/2, o = (n%2 == 0)? n/2 : (n/2)+1;
-    
-    ll arns = 0;
-    if(e >= 3) {
-        ll even = e%MOD;
-        even = even * ((e-1)%MOD) % MOD;
-        even = even * ((e-2)%MOD) % MOD;
-        even = even * binPow(6,MOD-2)%MOD;
+    while(k--) {
+        ll n;  cin >> n;
+        ll aux;
+        aux = (n-1)*(n-1);
+        aux = floor(aux/4);
+        aux = aux % MOD;
+        numerador = numerador * aux % MOD;
         
-        arns = (arns + even) % MOD;
-    }
-    if(e >= 1 && o >= 2) {
-        ll odd = o%MOD;
-        odd = odd * ((o-1)%MOD)%MOD;
-        odd = odd * binPow(2,MOD-2)%MOD;
-        odd = odd * (e%MOD) %MOD;
+        aux = n % MOD;
+        aux = aux * ((n-1) % MOD) % MOD;
+        aux = aux * ((n-2) % MOD) % MOD;
+        aux = aux * binPow(6,MOD-2)%MOD;
+        denominador = denominador * aux % MOD;
         
-        arns = (arns + odd) % MOD;
+        ll arns = (numerador%MOD) * binPow(denominador, MOD-2)%MOD;
+        cout << arns << '\n';
     }
-    
-    cout << arns << '\n';
 }
 
 int main() {
 	fastIO();
 	int tc = 1;
-	cin >> tc;
+	//cin >> tc;
 	for (int t = 1; t <= tc; t++) solve();
 }
